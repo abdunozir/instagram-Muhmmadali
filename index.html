@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="all__container">
+      <div class="all__wrapper">
+        <nav class="nav">
+          <div class="logo">
+            <img src="	https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="">
+          </div>
+          <form action="">
+            <input type="search" name="" id="" placeholder="Search">
+            <span><i class="bi bi-search"></i></span>
+          </form>
+
+          <div class="navbar__icons">
+            <span><i class="bi bi-house-door"></i></span>
+            <span><i class="bi bi-chat-dots"></i></span>
+            <span><i class="bi bi-plus-square"></i></span>
+            <span><i class="bi bi-compass-fill"></i></span>
+            <span><i class="bi bi-heart"></i></span>
+            <!-- <span class="userAccauntImg"><img src="./videos/Muhammadali.jpg" alt=""></span> -->
+          </div>
+        </nav>
+
+        <!-- user acount info -->
+        <div class="userAccauint__info">
+          <div><img src="./videos/Muhammadali.jpg" alt=""></div>
+          <div>
+            <di>
+              <p>muhammadali_eshonqulov</p>
+              <button>Follow</button> <button>bottom</button>
+            </di>
+            <p></p>
+          </div>
+        </div>
+
+
+        <!-- user suggestion -->
+        <div class="wrapper__user_suggestion">
+          <div class="suggestion_logos d-flex align-items-center">
+            <div>
+              <span><img src="./videos/facebooklogo.jpg" alt="" /></span>
+              <h6>Facebook</h6>
+            </div>
+
+            <div>
+              <span><img src="./videos/instalogo.jpg" alt="" /></span>
+              <h6>Instagram</h6>
+            </div>
+
+            <div>
+              <span><img src="./videos/palmalogo.jpg" alt="" /></span>
+              <h6>Sayohat</h6>
+            </div>
+            <div>
+              <span><img src="./videos/telegramlogo.jpg" alt="" /></span>
+              <h6>Telegram</h6>
+            </div>
+            <div>
+              <span><img src="./videos/tiktioklogo.jpg" alt="" /></span>
+              <h6>tiK tok</h6>
+            </div>
+            <div>
+              <span><img src="./videos/videologo.jpg" alt="" /></span>
+              <h6>Reels</h6>
+            </div>
+            <div>
+              <span><img src="./videos/youtubelogo.jpg" alt="" /></span>
+              <h6>Youtube</h6>
+            </div>
+          </div>
+        </div>
+        <!-- posts and bookmark cateegories -->
+        <div class="categories__container">
+          <span class="category__post" onclick="openPosted()"
+            ><span><i class="bx bx-checkbox-square"></i></span> Posts</span
+          >
+          <span class="category__marked" onclick="openMarked()"
+            ><span onclick="openMarked()"><i class="bx bx-bookmark-heart"></i></span onclick="openMarked()"> Bookmark</span
+          >
+        </div>
+        <!-- marked posts -->
+        <div class="marked__container"></div>
+
+        <!-- posts  -->
+        <div class="posts_container"></div>
+      </div>
+    </div>
+
+    <div class="modal-post">
+      <span class="exitmodal" onclick="closePostModal()"
+        ><i class="bx bx-x"></i
+      ></span>
+      <span class="model_cards_left_btn" onclick="movePre()"
+        ><i class="bx bx-chevron-left"></i
+      ></span>
+      <div class="modal__content"></div>
+      <span class="model_cards_right_btn" onclick="moveNext()"
+        ><i class="bx bxs-chevron-right"></i
+      ></span>
+    </div>
+
+    <script src="./js/malumotlar.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/categry.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

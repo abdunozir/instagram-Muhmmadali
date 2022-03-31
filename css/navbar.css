@@ -1,0 +1,77 @@
+.all__wrapper {
+  position: relative;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+}
+
+.nav .logo {
+  width: 30%;
+  height: 20px;
+}
+
+.nav form {
+  width: 20%;
+  padding: 2px 5px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav form input {
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+.nav .navbar__icons {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav .navbar__icons span {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.navbar__icons .userAccauntImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.navbar__icons .userAccauntImg img {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=navbar.css.map */
