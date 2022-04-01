@@ -5,7 +5,7 @@ posts.forEach((item) => {
   //  check is slider or not
   let islider = 'play';
   if (item.media.length > 1) {
-    islider = 'slideshow';
+    islider = 'copy';
   }
 
   if (item.media[0].indexOf('.mp4') !== -1) {

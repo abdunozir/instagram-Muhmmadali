@@ -1,0 +1,115 @@
+.post1 {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  gap: 10px;
+}
+.post1 .post__img1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post1 .post__vid1 {
+  width: 100%;
+  position: absolute;
+  top: -100px;
+}
+
+.post__video_container1 {
+  position: relative;
+}
+
+.post__hover_effect1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.493);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+  z-index: 2;
+  gap: 10px;
+}
+.post__hover_effect1 .hover_effect__play1 {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
+.post__hover_effect1 .hover_effect__play1 .post_play1 {
+  font-size: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.post__hover_effect1 .hover_effect__play1 .play_count1 {
+  font-size: 20px;
+  color: white;
+  font-weight: 100;
+}
+
+.hover_effect_comment1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hover_effect_comment1 .postlike_icon1 {
+  font-size: 20px;
+  color: white;
+}
+.hover_effect_comment1 .comCount1 {
+  font-size: 20px;
+  color: white;
+  font-weight: 100;
+}
+.post__video_container1 .asvideoplay1 {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  top: 2%;
+  right: 10%;
+  z-index: 1;
+}
+
+.post1 .post__vid1 {
+  width: 100%;
+  //   height: 40rem;
+}
+@media (max-width: 950px) {
+  .post1 {
+    height: 250px;
+  }
+  .post1 .post__vid1 {
+    top: -50px;
+  }
+}
+
+@media (max-width: 680px) {
+  .post1 {
+    height: 200px;
+  }
+  .post1 .post__vid1 {
+    top: -25px;
+  }
+}
+@media (max-width: 540px) {
+  .post1 {
+    height: 150px;
+  }
+  .post1 .post__vid1 {
+    top: 25px;
+  }
+}
+
+// mark
+.ticked {
+  color: red;
+}

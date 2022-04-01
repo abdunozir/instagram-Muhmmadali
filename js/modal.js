@@ -1,172 +1,121 @@
 // modal
 let modal__content = document.querySelector('.modal__content');
 let modal_post = document.querySelector('.modal-post');
-let modal = '';
-let openedmodalId = undefined;
-let addlike = 0;
+let modal_vid_img_sld = document.querySelector('.modal_vid_img_sld');
+const modal_media = document.querySelector('.modal_vid_img_sld');
+const M_desc = document.querySelector('.M_desc');
+const M_like = document.querySelector('.M_likes');
+let current_modal_id = 0;
+function openmodal(id) {
+  current_modal_id = id;
+  modal_post.id = id;
+  let M_vid = '';
+  let M_img = '';
+  let M_slider = '';
+  let M_slider_img = '';
+  let M_slider_vid = '';
+  posts.forEach((item) => {
+    if (item.id == id) {
+      if (item.media.length == 1) {
+        console.log('bitta');
+        if (item.media[0].indexOf('.mp4') !== -1) {
+          M_vid = `
+          <video src="${item.media[0]}"  id="${item.id}" autoplay controls>
+              <source type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          `;
+          modal_media.innerHTML = M_vid;
+        } else {
+          M_img = `
+          <img src="${item.media[0]}" id="${item.id}" alt="">
+          `;
+          modal_media.innerHTML = M_img;
+        }
+      } //check is media length == 1
+      else {
+        item.media.forEach((sliderItem) => {
+          if (sliderItem.indexOf('.mp4') !== -1) {
+            M_slider_vid += `<div id="${item.id}" class="carousel-item active  carusel_video_onmodal"> <video src="${sliderItem}"  controls>
+            <source type="video/mp4" />
+            Your browser does not support the video tag.
+          </video> </div>`;
+          } else {
+            M_slider_img += `
+            <div class="carousel-item " id="${item.id}">
+            <img class="d-block img__carusel-2" src="${sliderItem}" alt="">
+            </div>
+            `;
+          }
+        });
 
-function openmodal(elId) {
-  console.log(elId);
-  let el = posts[elId - 1];
-  openedmodalId = el.id;
-  if (el.media.length > 1) {
-    modal = `
-    <div class="modal__image">
-              <video src="${el.media[0]}" autoplay controls>
-                <source type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="modal_texts">
-              <div class="modal_desc">
-                <div class="w-100 p-1 pl-3 desc_top_title">
-                  <span><img src="./videos/Muhammadali.jpg" alt="" /></span>
-                  <h6>Muhammadi Ali Eshonqulov</h6>
-                </div>
-                <div class="desc_body">
-                  <span><img src="./videos/Muhammadali.jpg" alt="" /></span>
-                  <div class="desc_context">
-                    <h6>Muhammadali Eshonqulov</h6>
-                    <p>
-                      ${el.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal__bookmark">
-                <div class="share_icons">
-                  <div class="modal_like">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-message-rounded-dots"></i></span>
-                    <span><i class="bx bxs-share"></i></span>
-                  </div>
-                  <span onclick='mark((${el.id})'><i  class="bx bx-bookmark"></i></span>
-                </div>
-                <div class="posted-time">
-                  <h6>${el.likes} likes</h6>
-                  <span>19 HOURS AGO</span>
-                </div>
-                <form class="onmodal__form">
-                  <span><i class="bx bx-smile"></i></span>
-                  <input type="text" placeholder="Add a comment" />
-                </form>
-              </div>
-            </div>
-    `;
-  } else {
-    if (el.media[0].indexOf('.mp4') !== -1) {
-      modal = `
-    <div class="modal__image">
-              <video src="${el.media[0]}" autoplay controls>
-                <source type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="modal_texts">
-              <div class="modal_desc">
-                <div class="w-100 p-1 pl-3 desc_top_title">
-                  <span><img src="./videos/Muhammadali.jpg" alt="" /></span>
-                  <h6>Muhammadi Ali Eshonqulov</h6>
-                </div>
-                <div class="desc_body">
-                  <span><img src="./videos/Muhammadali.jpg" alt="" /></span>
-                  <div class="desc_context">
-                    <h6>Muhammadali Eshonqulov</h6>
-                    <p>
-                      ${el.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal__bookmark">
-                <div class="share_icons">
-                  <div class="modal_like">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-message-rounded-dots"></i></span>
-                    <span><i class="bx bxs-share"></i></span>
-                  </div>
-                  <span onclick='mark(${el.id}) '><i class="bx bx-bookmark"></i></span>
-                </div>
-                <div class="posted-time">
-                  <h6>${el.likes} likes</h6>
-                  <span>19 HOURS AGO</span>
-                </div>
-                <form class="onmodal__form">
-                  <span><i class="bx bx-smile"></i></span>
-                  <input type="text" placeholder="Add a comment" />
-                </form>
-              </div>
-            </div>
-    `;
-    } else {
-      addlike = el.likes;
-      modal = `
-    <div class="modal__image">
-          <img src="${el.media[0]}" alt="">
-            </div>
-            <div class="modal_texts">
-              <div class="modal_desc">
-                <div class="w-100 p-1 pl-3 desc_top_title">
-                  <span><img src="./videos/Muhammadali.jpg" alt="" /></span>
-                  <h6>Muhammadi Ali Eshonqulov</h6>
-                </div>
-                <div class="desc_body">
-                  <span><img src="./videos/Muhammadali.jpg" alt="" /></span>
-                  <div class="desc_context">
-                    <h6>Muhammadali Eshonqulov</h6>
-                    <p>
-                      ${el.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="modal__bookmark">
-                <div class="share_icons">
-                  <div class="modal_like">
-                    <span onclick="likeit(${el.id})" ><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-message-rounded-dots"></i></span>
-                    <span><i class="bx bxs-share"></i></span>
-                  </div>
-                  <span onclick='mark(${el.id})'><i class="bx bx-bookmark"></i></span>
-                </div>
-                <div class="posted-time">
-                  <h6>${addlike} likes</h6>
-                  <span>19 HOURS AGO</span>
-                </div>
-                <form class="onmodal__form">
-                  <span><i class="bx bx-smile"></i></span>
-                  <input type="text" placeholder="Add a comment" />
-                </form>
-              </div>
-            </div>
-    `;
+        M_slider = `
+        <div id="carouselExampleControls" class="carousel slide carusel_video_onmodal" data-bs-ride="carousel">
+  <div class="carousel-inner h-100">
+    
+     ${M_slider_vid}
+    
+    
+      ${M_slider_img}
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        `;
+
+        modal_media.innerHTML = M_slider;
+      }
     }
-  }
-  modal__content.innerHTML = modal;
+  });
+
   modal_post.setAttribute('style', 'display:flex;');
 }
 
 function closePostModal() {
   modal_post.setAttribute('style', 'display:none;');
-  modal__content.innerHTML = '';
+  M_slider_vid = '';
+  M_slider_img = '';
+  M_slider = '';
+  modal_vid_img_sld.innerHTML = '';
+  modal_media.innerHTML = '';
 }
 
 // ================= move next modal ===================
 // move next element
 function moveNext() {
-  if (openedmodalId == posts.length) {
+  if (current_modal_id == posts.length) {
+    modal_vid_img_sld.innerHTML = '';
+    modal_media.innerHTML = '';
+    current_modal_id = 1;
   } else {
-    openedmodalId++;
-    openmodal(openedmodalId);
+    modal_vid_img_sld.innerHTML = '';
+    modal_media.innerHTML = '';
+    current_modal_id++;
+
+    openmodal(current_modal_id);
   }
 }
 
 function movePre() {
-  if (openedmodalId == 0) {
-    openedmodalId = 0;
+  console.log(current_modal_id);
+  if (current_modal_id == 1) {
+    modal_vid_img_sld.innerHTML = '';
+    modal_media.innerHTML = '';
+    current_modal_id = 9;
+    openmodal(modal_vid_img_sld);
   } else {
-    openedmodalId--;
-    openmodal(openedmodalId);
+    console.log(current_modal_id);
+    modal_vid_img_sld.innerHTML = '';
+    modal_media.innerHTML = '';
+    current_modal_id--;
+    openmodal(modal_vid_img_sld);
   }
 }
 

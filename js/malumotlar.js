@@ -8,7 +8,7 @@ let posts = [
     seen: 2000,
     likes: 300,
     comment_count: 200,
-    wishlist: true,
+    wishlist: false,
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ let posts = [
     seen: 123000,
     likes: 7000,
     comment_count: 1005,
-    wishlist: true,
+    wishlist: false,
   },
   {
     id: 4,
